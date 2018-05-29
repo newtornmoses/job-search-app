@@ -1,0 +1,45 @@
+<ion-header>
+    <ion-navbar color="primary">
+        <ion-title>
+            <h4>Mega Job Search</h4>
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+    <ion-list>
+        <ion-item>
+            <ion-label>Search</ion-label>
+            <ion-input type="text"></ion-input>
+        </ion-item>
+        <button ion-button block>Search Now</button>
+
+    </ion-list>
+
+    <ion-label>Results {{jobsArray.results.length}}</ion-label>
+
+    <ion-card *ngFor="let jobs of  jobsArray.results">
+        <ion-card-header>
+
+            <h4>
+                {{jobs.jobtitle}}
+
+            </h4>
+        </ion-card-header>
+        <ion-list>
+            <p> {{jobs.snippet}}</p>
+        </ion-list>
+        <ion-list>
+
+            <button ion-button>View on Indeed</button>
+        </ion-list>
+
+    </ion-card>
+
+</ion-content>
+
+<ion-footer color="primary">
+
+    <h6>Designed by newtorn moses</h6>
+</ion-footer>
