@@ -1,7 +1,9 @@
+
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-// import {Observable} from 'rxjs/Observable';
+//  import {Observable} from 'rxjs/Observable';
 import  "rxjs/add/operator/map";
+
 
 
 /*
@@ -12,7 +14,7 @@ import  "rxjs/add/operator/map";
 */
 @Injectable()
 export class JobsProvider {
- url ="../../assets/indeedjobs.json";
+ url ="http://localhost:3000/hotelluxuz/hotel/rooms";
 
 
 
@@ -21,14 +23,21 @@ export class JobsProvider {
 
   }
 
-  getIndeed_data() {
-    return this.http.get( this.url);
-
-          //  .subscribe(data => {
-          //    console.log(data.results);
-          //  })
-
+// get all rooms
+  get_rooms() {
+    const headers: any = new Headers();
+    headers.append('Content-Type', 'application/json');
+     return this.http.get( this.url, {headers: headers});
 
   }
+
+  // get single room
+  get_single(url) {
+    const headers: any = new Headers();
+    headers.append('Content-Type', 'application/json');
+     return this.http.get('http://localhost:3000'+url, {headers: headers});
+  }
+
+
 
 }

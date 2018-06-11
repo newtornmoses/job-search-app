@@ -1,4 +1,4 @@
-page-home {
+page-roomsearch {
     ion-content {
         background: url('./../assets/images/rooms/luxurry-king-master.jpg');
         background-size: cover;
@@ -22,6 +22,21 @@ page-home {
         border-bottom: 1px solid rgba(0, 0, 0, 0.12);
         background: rgba(132, 57, 105, 0.38);
         border: 1px solid #f4f4f4d4;
+    }
+    h4 {
+        text-align: center;
+        color: white ! important;
+    }
+    h4.searchTitle {
+        color: #222 !important;
+        font-size: 21px !important;
+        border-bottom: 1px solid rgba(128, 128, 128, 0.7490196078431373);
+    }
+    ion-card-content.card-content.card-content-md {
+        font-size: 15px !important;
+    }
+    ion-label.label.label-md {
+        padding: 10px !important;
     }
     ion-footer {
         left: 0;
@@ -58,15 +73,5 @@ page-home {
     }
     select#select {
         width: 229px;
-    }
-    h4 {
-        text-align: center;
-        color: white ! important;
-    }
-    .searchTitle {
-        color: #222 !important;
-        font-size: 21px !important;
-        background: whitesmoke;
-        padding: 10px !important;
     }
 }
