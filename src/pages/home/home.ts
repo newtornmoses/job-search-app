@@ -1,9 +1,10 @@
 import { SingleRoomPage } from './../single-room/single-room';
 import { RoomsearchPage } from './../roomsearch/roomsearch';
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, AlertController } from 'ionic-angular';
 import {JobsProvider} from '../../providers/jobs/jobs';
-import { LoginPage } from '../login/login';
+import {DatePicker} from '@ionic-native/date-picker';
+
 
 
 @Component({
@@ -16,7 +17,8 @@ count ;
 max_guests =2;
 room_type='comfort';
 
-  constructor(public navCtrl: NavController, public jobs: JobsProvider) {
+  constructor(public navCtrl: NavController, public jobs: JobsProvider,
+    public alert: AlertController, public datepicker: DatePicker) {
 
   }
 
@@ -55,6 +57,62 @@ room_type='comfort';
               );
   }
 
+  // book_now
+  book_now(event) {
+    this.view(event);
+
+  }
+
+  // pending
+  pending(event) {
+    this.alert.create({
+      title:" room pending",
+      message:" You can book it in time",
+      buttons:[
+        {
+          text:' Cancle'
+        },
+        {
+          text: "Go Ahead",
+          handler: () => {
+            this.view(event);
+          }
+        }
+      ]
+    }).present();
+
+  }
+
+  // booked
+  booked() {
+  const room_alert = this.alert.create({
+    title: 'sorry',
+     message:"This room is already booked , plz check latter",
+     buttons:[
+       {
+       text:'Ok',
+       handler: () => {
+        console.log('ok');
+       }
+
+       }
+     ]
+  });
+
+  room_alert.present();
+  }
+
+  // date picker
+  date_picker() {
+    this.datepicker.show({
+       date: new Date(),
+         mode: 'date',
+         androidTheme: this.datepicker.ANDROID_THEMES.THEME_HOLO_DARK,
+
+    })
+     .then(date => console.log(date))
+     .catch(err => console.log(err))
+  }
 
 
 

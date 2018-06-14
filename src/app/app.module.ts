@@ -1,3 +1,5 @@
+import { DatePicker } from '@ionic-native/date-picker';
+import { CheckoutPage } from './../pages/checkout/checkout';
 import { SingleRoomPage } from './../pages/single-room/single-room';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
@@ -10,6 +12,9 @@ import { HomePage } from '../pages/home/home';
  import { LoginPage } from './../pages/login/login';
 import { JobsProvider } from '../providers/jobs/jobs';
 import {RoomsearchPage} from './../pages/roomsearch/roomsearch';
+import {Stripe} from '@ionic-native/stripe';
+
+
 
 
 @NgModule({
@@ -18,7 +23,8 @@ import {RoomsearchPage} from './../pages/roomsearch/roomsearch';
     HomePage,
     LoginPage,
     SingleRoomPage,
-    RoomsearchPage
+    RoomsearchPage,
+    CheckoutPage
 
   ],
   imports: [
@@ -32,14 +38,15 @@ import {RoomsearchPage} from './../pages/roomsearch/roomsearch';
     HomePage,
     LoginPage,
     SingleRoomPage,
-    RoomsearchPage
+    RoomsearchPage,
+    CheckoutPage
 
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    JobsProvider
+    JobsProvider, Stripe, DatePicker
   ]
 })
 export class AppModule {}

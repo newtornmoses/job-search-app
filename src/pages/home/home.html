@@ -7,6 +7,9 @@
 </ion-header>
 
 <ion-content padding>
+
+    <h4 class="welcome">Welcome to Luxuz Hotel room booking App</h4>
+
     <div class="SearchForm">
         <ion-item>
             <ion-label>
@@ -79,11 +82,18 @@
                     </ion-row>
 
                 </ion-card-header>
-                <ion-card-content *ngIf="room.room.details.isActive">
-                    <button ion-button color="danger">Booked</button>
+                <ion-card-content *ngIf="room.room.details.isActive && room.room.details.paid">
+                    <button ion-button color="danger" (click)="booked()">Booked</button>
+                </ion-card-content>
+                <ion-card-content *ngIf="room.room.details.isActive && !room.room.details.paid">
+                    <button ion-button color="light" (click)="pending(room.room.url)">
+                   <ion-icon name="cog" class="pending"></ion-icon> &nbsp;
+                      Pending
+                    </button>
+
                 </ion-card-content>
                 <ion-card-content *ngIf="room.room.details.isActive === false">
-                    <button ion-button primary>Book Now</button>
+                    <button ion-button primary (click)="book_now(room.room.url)">Book Now</button>
                 </ion-card-content>
             </ion-card>
 
@@ -92,7 +102,7 @@
 
 </ion-content>
 
-<ion-footer color="primary">
+<ion-footer>
 
     <h6>Designed by newtorn moses</h6>
 </ion-footer>
