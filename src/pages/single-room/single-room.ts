@@ -34,8 +34,11 @@ totalDays = 0;
     const data = {
       amount: this.totalAmount,
       room: this.singleroom['class'],
-      room_number: this.singleroom['room_number']
-
+      room_number: this.singleroom['room_number'],
+      id: this.singleroom['_id'],
+      stay: this.totalDays,
+      checkin: this.checkin,
+      checkout: this.checkout
     }
   this.navCtrl.push(CheckoutPage, data);
   }
@@ -44,10 +47,8 @@ totalDays = 0;
 
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad SingleRoomPage');
+
     this.singleroom = this.navParams.get('room').room;
-
-
 
     console.log(this.singleroom);
 

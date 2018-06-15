@@ -1,3 +1,4 @@
+import { SuccessPage } from './../pages/success/success';
 import { DatePicker } from '@ionic-native/date-picker';
 import { CheckoutPage } from './../pages/checkout/checkout';
 import { SingleRoomPage } from './../pages/single-room/single-room';
@@ -24,7 +25,8 @@ import {Stripe} from '@ionic-native/stripe';
     LoginPage,
     SingleRoomPage,
     RoomsearchPage,
-    CheckoutPage
+    CheckoutPage,
+    SuccessPage
 
   ],
   imports: [
@@ -39,7 +41,8 @@ import {Stripe} from '@ionic-native/stripe';
     LoginPage,
     SingleRoomPage,
     RoomsearchPage,
-    CheckoutPage
+    CheckoutPage,
+    SuccessPage
 
   ],
   providers: [

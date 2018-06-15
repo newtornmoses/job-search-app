@@ -93,7 +93,8 @@
                     <ion-label>
                         <ion-icon md="md-time"></ion-icon>
                         Check In </ion-label>
-                    <ion-input type="date" [(ngModel)]="checkin"></ion-input>
+                    <ion-datetime displayFormat="MM-DD-YY" pickerFormat="MM-DD-YY" [(ngModel)]="checkin"></ion-datetime>
+                    <!-- <ion-input type="date" [(ngModel)]="checkin"></ion-input> -->
                 </ion-item>
             </ion-col>
 
@@ -102,7 +103,9 @@
                     <ion-label>
                         <ion-icon md="md-time"></ion-icon>
                         Check Out </ion-label>
-                    <ion-input type="date" [(ngModel)]="checkout"></ion-input>
+
+                    <ion-datetime displayFormat="MM-DD-YY" pickerFormat="MM-DD-YY" [(ngModel)]="checkout"></ion-datetime>
+
                 </ion-item>
             </ion-col>
             <button ion-button block (click)="confirmDates()">Confirm Dates</button>
